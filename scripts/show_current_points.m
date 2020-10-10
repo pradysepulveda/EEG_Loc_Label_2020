@@ -1,10 +1,17 @@
 function []= show_current_points(label_matrix,surface_info)
-%%Show current electrode_matrix on the surface
+%%Show current electrode_matrix on the head surface
+
+% Input:
+% surface_info: struct with head mask matrix info from Brainstorm.
+% label_matrix: matrix containing electrode (rows) and 3d coodinates
+% (columns).
+
+
+% P Sepulveda -- 2019
 
 face = surface_info.Faces;
 nodes = surface_info.Vertices;
 curvature=surface_info.Curvature;
-
 
 
 figure

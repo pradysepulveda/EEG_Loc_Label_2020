@@ -1,13 +1,21 @@
 function [label_matrix]= erase_points(label_matrix,surface_info)
 % Select points to erase from the electrode list in the head model
 
+% Input:
+% surface_info: struct with head mask matrix info from Brainstorm.
+% label_matrix: matrix containing electrode (rows) and 3d coodinates
+% (columns).
+
+% Output:
+% label_matrix : matrix containing positions of potential electrodes 
 
 %%Selecciona los puntos que quieras eliminar usando data cursor en la imagen
 %%(+ALT) y guardarlo a una variable en el workspace (cursor_info)
 
 % Select the points to delete using data cursor feature  (available in the
-% MATLAB figure window; keep ALT pressed to select more than one)
+% MATLAB figure window; keep ALT, in windows, pressed to select more than one)
 
+% P Sepulveda -- 2019
 
 % load head model info
 face = surface_info.Faces;
@@ -42,7 +50,7 @@ label_matrix(ind_2_erase,:)=[];
 jj=1;
 ind_2_erase2=[];
 
-% Elimination treshold
+% Elimination treshold (area around the selected point)
 el_tresh = 0.023;
 
 %Erase close points (repeated points)

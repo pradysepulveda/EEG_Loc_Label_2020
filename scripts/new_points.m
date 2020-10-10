@@ -1,8 +1,23 @@
 function [label_matrix]= new_points(label_matrix,surface_info)
 % Select points to add to the electrode list in the head model
+% It uses data cursor functionality in MATLAB figure. 
 
-%%Selecciona los puntos que quieras agreagar usando data cursor en la imagen
-%%(+ALT) y guardarlo a una variable en el workspace (cursor_info)
+% Input:
+% surface_info: struct with head mask matrix info from Brainstorm.
+% label_matrix: matrix containing electrode (rows) and 3d coodinates
+% (columns).
+
+% Output:
+% label_matrix : matrix containing positions of potential electrodes 
+
+% Select the points to delete using data cursor feature  (available in the
+% MATLAB figure window; keep ALT, in windows, pressed to select more than one)
+
+
+%%Selecciona los puntos que quieras agregar usando data cursor en la imagen
+%%(click +ALT en Windows ) y guardarlo a una variable en el workspace (cursor_info)
+
+% P Sepulveda -- 2019
 
 
 face = surface_info.Faces;
